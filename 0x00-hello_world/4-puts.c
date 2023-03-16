@@ -1,7 +1,7 @@
 #include<stdio.h>
 /**
- * main - this is main function
- * Return - ruturn 0
+ * Description: this is main function
+ * Return: 0 if success
 **/
 int main(void)
 {
