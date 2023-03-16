@@ -1,7 +1,7 @@
 #include<stdio.h>
 /**
- * Description: main - Prints out a size of type variable
- * Return: return value on success
+ * Description:  main - Print out a size of type vari
+ * Return: return value if each type of variable
 **/
 int main(void)
 {
@@ -10,10 +10,10 @@ int main(void)
 	long int c;
 	long long int d;
 	float f;
-printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(a));
-printf("Size of int: %lu byte(s)\n", (unsigned long)sizeof(b));
-printf("Szie of a long int: %lu byte(s)\n", (unsigned long)sizeof(c));
-printf("size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(d));
-printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
+printf("Size of a char: %lu byte(s)\n", sizeof(a));
+printf("Size of int: %lu byte(s)\n", sizeof(b));
+printf("Szie of a long int: %lu byte(s)\n", sizeof(c));
+printf("size of a long long int: %lu byte(s)\n", sizeof(d));
+printf("Size of a float: %lu byte(s)\n", sizeof(f));
 return (0);
 }
