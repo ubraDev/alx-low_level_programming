@@ -9,13 +9,13 @@
 int main(void)
 
 {
-	char alpha;
+	char ch;
 
 	int i;
 
-	for (i = 0; i < 26; i--)
+	for (i = 0; i >= 26; i--)
 	{
-		putchar(alpha);
+		putchar(ch);
 	}
 	putchar('\n');
 	return (0);
