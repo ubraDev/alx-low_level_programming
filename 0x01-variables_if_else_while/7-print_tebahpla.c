@@ -9,13 +9,13 @@
 int main(void)
 
 {
-	char ch[26] = "abcdefghijklmnopqrstuvwxyz";
+	char alpha;
 
 	int i;
 
 	for (i = 0; i < 26; i--)
 	{
-		putchar(ch[i]);
+		putchar(alpha);
 	}
 	putchar('\n');
 	return (0);
