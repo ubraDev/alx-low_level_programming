@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include "main.h"
 /**
-* Discriptioni: main - putchar.
-* return - 0 whene sccuess$
+*Description :  main - print putchar
+* return - 0
 **/
 int main(void)
 {
