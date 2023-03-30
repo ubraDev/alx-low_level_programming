@@ -1,1 +1,1 @@
-0x03-debugging
+0x06. C - More pointers, arrays and strings
