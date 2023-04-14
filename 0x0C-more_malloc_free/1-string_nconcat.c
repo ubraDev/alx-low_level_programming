@@ -9,27 +9,46 @@
 *
 * Return: If the function fails, it should return NULL
 */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+	unsigned int x, y, z;
+	char *s;
+
 	if (s1 == NULL)
-		s1 = 0;
+	{
+		x = 0;
+	}
+	else
+	{
+		for (x = 0; s1[x]; ++x)
+			;
+	}
+
 	if (s2 == NULL)
-		s2 = 0;
+	{
+		y = 0;
+	}
+	else
+	{
+		for (y = 0; s2[y]; ++y)
+			;
+	}
+	if (y > n)
+		y = n;
 
-	size_t s1_len = strlen(s1);
-	size_t s2_len = strlen(s2);
+	s = malloc(sizeof(char) * (x + y + 1));
 
-	if (n >= s2_len)
-		n = s2_len;
-
-	char *result = malloc((s1_len + n + 1) * sizeof(char));
-
-	if (result == NULL)
+	if (s == NULL)
 		return (NULL);
 
-	memcpy(result, s1, s1_len);
-	memcpy(result + s1_len, s2, n);
-	result[s1_len + n] = '\0';
+	for (z = 0; z < x; z++)
+		s[z] = s1[z];
 
-	return (result);
+	for (z = 0; z < y; z++)
+		s[z + x] = s2[z];
+
+	s[x + y] = '\0';
+
+	return (s);
 }
