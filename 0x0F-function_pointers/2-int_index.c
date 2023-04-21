@@ -1,6 +1,7 @@
 #include "function_pointers.h"
+
 /**
- * int_index - function that executes a function given 
+ * int_index - function that executes a function given
  * as a parameter on each element of an array
  * @array: array
  * @size: size of elements in array
