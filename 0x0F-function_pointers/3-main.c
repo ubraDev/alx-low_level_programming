@@ -1,61 +1,43 @@
+#include "function_pointers.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include "3-calc.h"
-int op_add(int a, int b);
-int op_sub(int a, int b);
-int op_mul(int a, int b);
-int op_div(int a, int b);
-int op_mod(int a, int b);
 /**
- * op_add - Returns the sum of two numbers.
- * @a: The first number.
- * @b: The second number.
+ * main - Prints the result of simple operations.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
  *
- * Return: The sum of a and b.
+ * Return: Always 0.
  */
-int op_add(int a, int b)
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-return (a + b);
+int num1, num2;
+char *op;
+
+if (argc != 4)
+{
+printf("Error\n");
+exit(98);
 }
-/**
- * op_sub - Returns the difference of two numbers.
- * @a: The first number.
- * @b: The second number.
- *
- * Return: The difference of a and b.
- */
-int op_sub(int a, int b)
+
+num1 = atoi(argv[1]);
+op = argv[2];
+num2 = atoi(argv[3]);
+
+if (get_op_func(op) == NULL || op[1] != '\0')
 {
-return (a - b);
+printf("Error\n");
+exit(99);
 }
-/**
- * op_mul - Returns the product of two numbers.
- * @a: The first number.
- * @b: The second number.
- *
- * Return: The product of a and b.
- */
-int op_mul(int a, int b)
+
+if ((*op == '/' && num2 == 0) ||
+    (*op == '%' && num2 == 0))
 {
-return (a * b);
+printf("Error\n");
+exit(100);
 }
-/**
- * op_div - Returns the division of two numbers.
- * @a: The first number.
- * @b: The second number.
- *
- * Return: The quotient of a and b.
- */
-int op_div(int a, int b)
-{
-return (a / b);
-}
-/**
- * op_mod - Returns the remainder of the division of two numbers.
- * @a: The first number.
- * @b: The second number.
- *
- * Return: The remainder of the division of a by b.
- */
-int op_mod(int a, int b)
-{
-return (a % b);
+
+printf("%d\n", get_op_func(op)(num1, num2));
+
+return (0);
 }
