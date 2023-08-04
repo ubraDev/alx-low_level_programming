@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 /**
  * binary_to_uint - Converts a binary number to an unsigned int.
@@ -35,23 +34,5 @@ result += base;
 }
 base *= 2;
 }
-
 return (result);
-}
-
-int main(void)
-{
-const char *binary = "110101";
-unsigned int result = binary_to_uint(binary);
-
-if (result != 0)
-{
-printf("Binary: %s\nUnsigned Int: %u\n", binary, result);
-}
-else
-{
-printf("Invalid binary number.\n");
-}
-
-return (0);
 }
