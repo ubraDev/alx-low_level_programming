@@ -1,24 +1,57 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
-* binary_to_uint - function that converts a binary number to an unsigned int.
-* unsigned int.
-* @n: binary.
-* Return: unsigned int.
-*/
-void print_binary(unsigned long int n) {
-if (n > 1) {
-print_binary(n >> 1); // Right shift the number by 1
-}
-putchar((n & 1) + '0'); // Print the least significant bit
+ * binary_to_uint - Converts a binary number to an unsigned int.
+ * @b: Binary number as a string (0 and 1 characters).
+ * Return: Converted unsigned int, 
+ * or 0 if invalid input 
+ * or binary contains non-0/1 characters.
+ */
+unsigned int binary_to_uint(const char *b)
+{
+if (b == NULL)
+{
+return (0);
 }
 
-int main() {
-unsigned long int num;
-printf("Enter a number: ");
-scanf("%lu", &num);
-printf("Binary representation: ");
-print_binary(num);
-printf("\n");
+unsigned int result = 0;
+unsigned int base = 1;
+int length = 0;
+
+while (b[length] != '\0')
+{
+if (b[length] != '0' && b[length] != '1')
+{
+return (0);
+}
+length++;
+}
+
+for (int i = length - 1; i >= 0; i--)
+{
+if (b[i] == '1')
+{
+result += base;
+}
+base *= 2;
+}
+
+return (result);
+}
+
+int main(void)
+{
+const char *binary = "110101";
+unsigned int result = binary_to_uint(binary);
+
+if (result != 0)
+{
+printf("Binary: %s\nUnsigned Int: %u\n", binary, result);
+}
+else
+{
+printf("Invalid binary number.\n");
+}
+
 return (0);
 }
